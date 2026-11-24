@@ -24,8 +24,10 @@ below. Rewrite a fact here when it changes; no history.
   (merge included) and sets a timed check-back: Artem never has to notice.
 
 ## Talking to Artem (the lead)
-- Russian, short, direct; anything to copy in a code block. Exact answers, no guesses; if a report, memory or
-  file holds the answer, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
+- **Plain words** (Artem, 24.11): he is the owner, not a graphics or modding engineer. Short, direct Russian:
+  what he sees or gets, what is left, what he decides. No code, file or check names, no jargon; only numbers he
+  needs, each said in words. Tech detail only if he asks. Anything to copy in a code block. Exact answers, no
+  guesses; if a report, memory or file holds the answer, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
   «через час»): name what remains and the check that closes it.
 - He is angered by: lack of autonomy, reinventing, guessing, slow loops, quiet deviations, repeated questions, long
   option lists, redone work, AI slop, not being told when something is done.
@@ -79,11 +81,8 @@ Details (netcup, Crafty, golden worlds, test jars): `docs/team/servers.md`; the 
 `docs/team/silo.md`.
 
 ## Media
-- YouTube trailer: staged, cinematic, English, no worse than the scenario reference; deviations announced before;
-  final when the "falls short" list is empty.
-- TikTok: live player-view footage that Artem records and we render; every frame checked against game data.
 - Every mod's store pages and README first screen use the popular-mod layout (incoming `docs/store/listing.md`).
-- Shot verification, trailer and TikTok specs, captions, stores, Reddit: `docs/team/media.md`.
+- Shot verification, YouTube trailer and TikTok rules, captions, stores, Reddit: `docs/team/media.md`.
 
 ## Knowledge
 - Homes: incoming `AGENTS.md`, `.claude/rules/<area>.md` and plugin skills for the mod; this file for team and
