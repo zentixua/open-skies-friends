@@ -26,6 +26,11 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   world): Chunky on a prep server, then `/lsslod store backfill start` (never while Chunky runs). The store drops
   itself on registry drift: re-run backfill. A golden reset bumps .mca header stamps of changed chunks (reset.sh /
   mark_stale.py), or clients keep blasted LODs.
+- Every Crafty server's `start.sh` (and `~/airstrike-server/template/start.sh`) installs the pack with
+  packwiz-installer from `https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml`. A
+  server still on `zentixua/open-skies/…` gets the public Open Skies pack once that repository switches (another mod
+  set: friends cannot join). Moving a server: replace the address in its `start.sh` (takes effect at its next start;
+  the same pack, so no restart is needed for the move itself).
 - packwiz installs only mods on a server, not the loader: when `pack.toml` changes `[versions] neoforge`, install that
   NeoForge on each server with the official installer (Artem's line).
 - A pre-release test jar on a server or in Artem's Prism needs packwiz disabled (server `start.sh`, Prism

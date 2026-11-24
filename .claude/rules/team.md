@@ -1,4 +1,4 @@
-# Team and operations (private; every agent of Artem's projects)
+# Team and operations (every agent of Artem's projects)
 
 Loaded at start by every claude.ai project thread (root rule of this repository) and every laptop Claude session
 (`laptop-agents` plugin hook); Codex reads a generated copy, `~/.codex/AGENTS.md`. Homes: Knowledge
