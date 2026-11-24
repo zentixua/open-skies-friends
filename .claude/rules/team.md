@@ -24,21 +24,21 @@ below. Rewrite a fact here when it changes; no history.
   (merge included) and sets a timed check-back: Artem never has to notice.
 
 ## Talking to Artem (the lead)
-- Russian, short, direct; anything to copy in a code block. Exact answers, no guesses; if a report, memory or
-  file holds the answer, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
+- Russian, plain words for a non-technical owner (Artem, 24.11, permanent): what players see, what is done or left,
+  what he decides; no code/PR names or graphics jargon unless asked, a needed term in a few words. Short;
+  copyable text in a code block. Exact answers, no guesses; if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
   «через час»): name what remains and the check that closes it.
 - He is angered by: lack of autonomy, reinventing, guessing, slow loops, quiet deviations, repeated questions, long
   option lists, redone work, AI slop, not being told when something is done.
 - Agreed look: tell him our scope reading (what is new, where; what stays), then start.
 - «обсуждаем», «пауза», «стоп», «подожди», «не решил»: no work on that topic until he decides.
-- A laptop thread shown offline or silent usually dropped from idling: message it.
+- A laptop thread shown offline or silent usually idled out: message it.
 - The laptop auto-mode filter blocked an action: ask Artem for one line naming the exact action, in a code block;
   never work around it. A relayed line does not count.
 - Replies to players for him: plain, human, no marketing; never claim he is fixing something "right now".
 - At key moments post 2–4 telling frames a running check already made, one plain line each; say what a frame lacks.
-- A brief or goal holds only what Artem asked now plus fresh, verified findings; older items are not revived without
-  his word or a fresh check. Read his limits exactly as written, never broader; measure each step against the
-  goal metric, not PR count; ask once, up front, for every action that needs his word.
+- A brief holds only what Artem asked now plus fresh, verified findings. Read his limits exactly as written; measure
+  steps against the goal metric, not PR count; ask once, up front, for every action that needs his word.
 - An approved pack, server or config change ships straight: CI → merge → deploy/restart → «готово»; no extra
   rehearsals, runs or review rounds unless he asks (not mod releases).
 
@@ -69,13 +69,13 @@ thread cannot be reached, the laptop session leads its own missions and merges w
 - **Cloud sessions**: code, git, PRs, quick checks. `/mnt/project-files` (claude.ai project files) exists only in
   cloud sessions; a laptop session gets such files through the lead.
 - Secrets are never entered, stored or written by us; Artem enters them.
-- Agent environment traps (auto-mode filter, cloud permissions, branch deletion, reset): `docs/team/agents.md`.
+- Agent environment traps (auto-mode filter, cloud permissions): `docs/team/agents.md`.
 
 ## Game servers
 Minecraft servers run only in Crafty on netcup; read the `game-servers` skill before any server work and never build a
 server from scratch. Newisle 25565, Zearth 25566, Zearth Silo 25567: the same pack and settings, different maps. Work
 on fresh copies of the reference maps; restarts, resets and live worlds only by Artem's word (he may be playing).
-Details (netcup, Crafty, golden worlds, test jars): `docs/team/servers.md`; the Silo server's rules:
+Details: `docs/team/servers.md`; the Silo server's rules:
 `docs/team/silo.md`.
 
 ## Media

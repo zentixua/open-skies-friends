@@ -25,6 +25,7 @@ ANCHORS = [
     ("Everything else inside a goal or look Artem approved is ours to decide", "the autonomy rule (Artem, 21.11)"),
     ("A mission never stops to ask", "missions never stop for questions (Artem, 22.11)"),
     ("The lead never puts a how-question to him", "the lead decides how-questions itself (Artem, 22.11)"),
+    ("plain words for a non-technical owner", "talking to Artem in plain words (Artem, 24.11)"),
 ]
 
 
