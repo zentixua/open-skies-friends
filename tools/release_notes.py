@@ -37,7 +37,7 @@ def render(root=ROOT):
         raise ValueError(f"Empty English release notes for {version}")
     sections = []
     for language, changes in (("en", english), ("ru", russian)):
-        changes = changes.replace("](#", "](https://github.com/zentixua/open-skies#")
+        changes = changes.replace("](#", "](https://github.com/zentixua/open-skies-friends#")
         template = (root / f"docs/releases/template.{language}.md").read_text(encoding="utf-8")
         sections.append(template.format(**pack["versions"], mod=mod, changes=changes).strip())
     return "\n\n---\n\n".join(sections) + "\n"

@@ -23,7 +23,7 @@ import urllib.request
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PACK_URL = "https://raw.githubusercontent.com/zentixua/open-skies/main/pack/pack.toml"
+PACK_URL = "https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml"
 BOOTSTRAP = "packwiz-installer-bootstrap.jar"
 BOOTSTRAP_URL = f"https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/{BOOTSTRAP}"
 BOOTSTRAP_SHA256 = "a8fbb24dc604278e97f4688e82d3d91a318b98efc08d5dbfcbcbcab6443d116c"
@@ -31,7 +31,7 @@ BOOTSTRAP_SHA256 = "a8fbb24dc604278e97f4688e82d3d91a318b98efc08d5dbfcbcbcab6443d
 MAX_MEMORY_MB = 6144
 # Prism components (mmc-pack.json) by [versions] keys in pack.toml, also checked by packwiz-installer.
 COMPONENTS = {"minecraft": "net.minecraft", "neoforge": "net.neoforged"}
-USER_AGENT = "zentixua/open-skies tools/prism_instance.py"
+USER_AGENT = "zentixua/open-skies-friends tools/prism_instance.py"
 
 
 def ini_value(s):
@@ -66,8 +66,8 @@ def main():
         ("name", ini_value(pack["name"])),
         ("notes", ini_value(
             'Installation and optional mods: EN '
-            'https://github.com/zentixua/open-skies/blob/main/docs/install/optional-mods.en.md | RU '
-            'https://github.com/zentixua/open-skies/blob/main/docs/install/optional-mods.ru.md'
+            'https://github.com/zentixua/open-skies-friends/blob/main/docs/install/optional-mods.en.md | RU '
+            'https://github.com/zentixua/open-skies-friends/blob/main/docs/install/optional-mods.ru.md'
         )),
         ("OverrideCommands", "true"),
         ("PreLaunchCommand", ini_value(command)),
