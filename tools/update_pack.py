@@ -28,7 +28,7 @@ NOTES = "https://github.com/{owner}/{repo}/blob/main/docs/releases/{version}.md"
 
 
 def get(url, headers=None):
-    request = urllib.request.Request(url, headers={"User-Agent": "zentixua/open-skies update_pack.py", **(headers or {})})
+    request = urllib.request.Request(url, headers={"User-Agent": "zentixua/open-skies-friends update_pack.py", **(headers or {})})
     with urllib.request.urlopen(request, timeout=60) as response:
         return response.read()
 

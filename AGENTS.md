@@ -7,6 +7,20 @@ Voxy long-distance rendering (through Roxy), shaders, replay recording, and Almi
 for the contents and installation. The mod is at https://github.com/zentixua/incoming;
 the Almighty host bridge (server only) is at https://github.com/zentixua/almighty.
 
+This repository, `zentixua/open-skies-friends`, is the friends' pack and the home of the team rules
+(`.claude/rules/team.md`, `docs/team/`). It moved here from `zentixua/open-skies` on 24.11.2026 with its full history;
+`zentixua/open-skies` becomes the public Open Skies pack (English, a template for other pack makers) once Artem
+confirms every instance and server has moved (README, "Переезд"). Until then both repositories serve this same pack
+(each runs the same `update.yml`). The friends' pack keeps exactly its own mod set: merging the public base and its
+new mods needs Artem's word.
+
+**Public upstream: prepared, off.** `zentixua/open-skies` (the public pack) shares this history. Nothing is merged
+from it until Artem decides that this pack becomes "public base plus our extras" (it would bring the public pack's new
+mods to the friends' world and server). Then: `git remote add upstream https://github.com/zentixua/open-skies.git`;
+record the public switch commit once with `git merge -s ours <that commit>` (nothing changes here, later merges carry
+only real changes); after that merge `upstream/main` by PR, keeping this repository's README, version line, configs
+and friends-only mods.
+
 ## People and rules
 
 - Author/host: **Artem** (GitHub zentixua, in-game ZentixUA). Friends: **ENOTzRPG**, **WallyFillmark**.
@@ -45,7 +59,9 @@ pack/                    ← the modpack: pack.toml (game and NeoForge versions)
                            shaderpacks/*.pw.toml (download sources and hashes), config/ (copied into the game as is)
 tools/prism_instance.py  ← Prism instance that installs pack/ from main before every launch (Open-Skies.zip)
 tools/pack_dir.py        ← game directory from pack/ without Prism (mods checked by hash), for Incoming client checks
-.claude/rules/team.md    ← team and operations rules for every agent of Artem's projects (gate tools/check_team_rules.py)
+.claude/rules/team.md    ← team and operations rules for every agent of Artem's projects (gate tools/check_team_rules.py);
+                           docs/team/ — their references. Readers: claude.ai project threads (this repository as a
+                           project repository), the laptop-agents hook (laptop clone /mnt/data/projects/open-skies-friends)
 tools/check_loader.py    ← every mod (including nested jars) accepts the NeoForge version in pack.toml; a CI step
 tools/boot_check.py      ← the modpack boots from scratch: server reaches "Done", client enters a world, client on
                            this server records a Flashback replay; CI job "Запуск с нуля" (client: Xvfb and Mesa);
@@ -57,9 +73,10 @@ tools/boot_check.py      ← the modpack boots from scratch: server reaches "Don
 .github/workflows/update.yml ← automatic updates (tools/update_pack.py), see "People and rules"
 ```
 
-Modpack address for packwiz-installer: `https://raw.githubusercontent.com/zentixua/open-skies/main/pack/pack.toml`;
-instances installed under the previous modpack name (Airstrike Pack) use the old address
-`zentixua/airstrike-pack/…`. GitHub serves it while zentixua has no repository with that name (keep the name unused).
+Modpack address for packwiz-installer: `https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml`.
+Instances and servers still on the old addresses (`zentixua/open-skies/…`, or `zentixua/airstrike-pack/…`, which
+GitHub redirects there) get this pack only until `zentixua/open-skies` switches to the public pack; README "Переезд"
+moves them (one pre-launch command line).
 The modpack lives in `pack/`, not the root: repository files (README, CI, tools) stay out of the index and the game.
 
 ## Workflow
@@ -102,5 +119,6 @@ A new Incoming or Almighty release reaches the pack by itself within 3 hours (`u
   file contents cannot redirect the modpack to another address. Enter the new address in the instance's
   "Pre-launch command". Renaming the GitHub repository does not break the address: raw.githubusercontent.com
   also serves files under the old name.
-- An instance with a different address in its "Pre-launch command" does not get the modpack from `main`;
-  reinstall it from `Open-Skies.zip`.
+- An instance with a different address in its "Pre-launch command" does not get the modpack from this `main`:
+  replace the address there (README "Переезд") or reinstall it from `Open-Skies.zip`. packwiz-installer has no
+  channel to show players a message, so a move is announced by Artem and by the release note.

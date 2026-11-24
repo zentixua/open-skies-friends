@@ -43,7 +43,7 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PACK = os.path.join(ROOT, "pack")
-USER_AGENT = "zentixua/open-skies tools/boot_check.py"
+USER_AGENT = "zentixua/open-skies-friends tools/boot_check.py"
 # Pin both packwiz-installer's bootstrap and the installer: their releases must not change the check automatically.
 BOOTSTRAP = "https://github.com/packwiz/packwiz-installer-bootstrap/releases/download/v0.0.3/packwiz-installer-bootstrap.jar"
 INSTALLER = "https://github.com/packwiz/packwiz-installer/releases/download/v0.5.14/packwiz-installer.jar"

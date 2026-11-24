@@ -7,7 +7,7 @@
 Сборка описана файлами [packwiz](https://packwiz.infra.link/): `pack.toml` (версии игры и NeoForge), `mods/*.pw.toml` и
 `shaderpacks/*.pw.toml` (откуда скачать каждый файл и его хеш), остальное — файлы, которые кладутся в игру как есть
 (`config/`). Файлы для лаунчера собирает CI (артефакт `open-skies`, у новой версии на `main` — и
-[выпуск](https://github.com/zentixua/open-skies/releases/latest)), `.mrpack` можно и руками:
+[выпуск](https://github.com/zentixua/open-skies-friends/releases/latest)), `.mrpack` можно и руками:
 
 ```sh
 go install github.com/packwiz/packwiz@v0.0.0-20260906154125-ef87d964f8cb
@@ -16,10 +16,10 @@ cd pack && packwiz mr export      # → Open Skies-<версия>.mrpack
 
 ## Установка
 
-Скачать — из [последнего выпуска](https://github.com/zentixua/open-skies/releases/latest), без входа на GitHub:
-- [Open-Skies.zip](https://github.com/zentixua/open-skies/releases/latest/download/Open-Skies.zip)
+Скачать — из [последнего выпуска](https://github.com/zentixua/open-skies-friends/releases/latest), без входа на GitHub:
+- [Open-Skies.zip](https://github.com/zentixua/open-skies-friends/releases/latest/download/Open-Skies.zip)
   — экземпляр [Prism Launcher](https://prismlauncher.org/download/) с автообновлением (ниже);
-- [Open-Skies.mrpack](https://github.com/zentixua/open-skies/releases/latest/download/Open-Skies.mrpack)
+- [Open-Skies.mrpack](https://github.com/zentixua/open-skies-friends/releases/latest/download/Open-Skies.mrpack)
   — разовая установка одной версии в Prism Launcher или Modrinth App, без автообновления (в конце раздела).
 
 Выпуск `v<версия>` выходит сам, когда на `main` приходит новая версия сборки; ссылки выше всегда ведут к последнему.
@@ -39,13 +39,26 @@ cd pack && packwiz mr export      # → Open Skies-<версия>.mrpack
 1. Prism: «Папка» (папка игры экземпляра, там `mods` и `saves`): переименовать `mods` в `mods-old` и положить
    туда же [packwiz-installer-bootstrap.jar](https://github.com/packwiz/packwiz-installer-bootstrap/releases/latest).
 2. «Изменить…» → «Параметры» → «Пользовательские команды»: включить и в «Предстартовая команда» вписать
-   `"$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/zentixua/open-skies/main/pack/pack.toml`
+   `"$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml`
 3. Запустить: packwiz-installer скачает моды сборки заново и спросит про необязательные. Свои моды не из сборки, если
    они были, вернуть из `mods-old` в `mods`.
 
-Экземпляр, поставленный под прежним именем сборки (Airstrike Pack), обновляется как прежде: GitHub отдаёт файлы и по
-старому адресу `zentixua/airstrike-pack`. Ссылки на прежние файлы выпуска (`Airstrike-Pack.zip`,
-`Airstrike-Pack.mrpack`) больше не работают: новая установка — из файлов выше.
+Экземпляр со старым адресом в предстартовой команде (`zentixua/open-skies` или, под прежним именем сборки,
+`zentixua/airstrike-pack`) переводится на адрес этого репозитория — раздел «Переезд» ниже. Ссылки на прежние файлы
+выпуска (`Airstrike-Pack.zip`, `Airstrike-Pack.mrpack`) больше не работают: новая установка — из файлов выше.
+
+### Переезд
+
+С версии 0.2.0 сборка друзей живёт в этом репозитории, `zentixua/open-skies-friends`. По старому адресу
+`zentixua/open-skies` (и `zentixua/airstrike-pack`, который ведёт туда же) будет публичная сборка Open Skies с другим
+набором модов: экземпляр со старым адресом поставит её и не зайдёт на наши серверы. Перевести экземпляр, миры и
+настройки остаются:
+1. Prism: экземпляр → «Изменить…» → «Параметры» → «Пользовательские команды» → в «Предстартовая команда» всю строку
+   заменить на
+   `"$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml`
+2. Запустить игру как обычно: набор модов тот же, packwiz-installer только сверит файлы.
+
+Или новый экземпляр из `Open-Skies.zip` (выше); миры тогда перенести из `saves` старого экземпляра (Prism: «Папка»).
 
 `mods` в сторону — потому что удаляет packwiz-installer только то, что ставил сам: jar старой версии сборки с другим
 именем (`airstrike-2.5.0.jar` у 0.1.0) остался бы рядом с новым, и игра не запустилась бы с двумя Airstrike. Файлы
@@ -304,6 +317,7 @@ Default Options — только у игроков. Его библиотека 
 
 | версия | мод | что изменилось |
 |---|---|---|
+| 0.2.0 | 3.13.0 | Сборка переехала в репозиторий zentixua/open-skies-friends: новый адрес в предстартовой команде экземпляра и новый `Open-Skies.zip` ([переезд](#переезд)). Набор модов тот же; по старому адресу zentixua/open-skies будет публичная сборка. |
 | 0.1.64 | 3.13.0 | Обновлены моды: Create: Diesel Generators 1.21.1-1.3.16, CreativeCore 2.13.55, Entity Culling 1.12.2, Euphoria Patches 1.11.2-r5.10-neoforge, Flashback Neoforge Fixed 1.0.19, Geckolib 4.9.4, Iris Bonk 1.21.1-0.1.5, Just Enough Items (JEI) 19.76.1.478, LOD Server Support v0.23.0-beta.1+neoforge+mc1.21.1, Particle Rain v4.0.4+1.21.1-neoforge, Reese's Sodium Options mc1.21.1-2.2.6+neoforge, Subtle Effects 1.15.3, Vista 1.21.1-5.6.10, Complementary Shaders - Unbound r5.10, MakeUp - Ultra Fast 9.6a. Обновление автоматическое. |
 | 0.1.63 | 3.13.0 | Обновлены моды: Contraption Lights (Bi-directional Coloured Dynamic Lights) 1.6.0, CreativeCore 2.13.54, Entity Culling 1.12.1, Flashback Neoforge Fixed 1.0.18, Kotlin for Forge 5.13.0, LOD Server Support v0.22.0-beta.1+neoforge+mc1.21.1, MezzConfig 0.7.1, Subtle Effects 1.15.2. Обновление автоматическое. |
 | 0.1.62 | 3.13.0 | Iris Bonk: экраны Vista с шейдерпаком показывают картинку, а не чёрный экран. Vista больше не показывает при запуске предупреждение об Iris. Обновление автоматическое. |

@@ -7,5 +7,5 @@ Minecraft {minecraft}, NeoForge {neoforge}, Incoming {mod}. {changes}
 - `Open-Skies.zip` — экземпляр [Prism Launcher](https://prismlauncher.org/download/), который сам обновляет сборку перед каждым запуском игры: «Добавить экземпляр…» → «Импорт» → этот файл.
 - `Open-Skies.mrpack` — разовая установка этой версии без автообновления: импорт в Prism Launcher или Modrinth App.
 
-[Установка и описания необязательных модов](https://github.com/zentixua/open-skies/blob/main/docs/install/optional-mods.ru.md).
-Подробно — [README](https://github.com/zentixua/open-skies#установка).
+[Установка и описания необязательных модов](https://github.com/zentixua/open-skies-friends/blob/main/docs/install/optional-mods.ru.md).
+Подробно — [README](https://github.com/zentixua/open-skies-friends#установка).
