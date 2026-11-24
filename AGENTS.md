@@ -14,6 +14,13 @@ confirms every instance and server has moved (README, "Переезд"). Until t
 (each runs the same `update.yml`). The friends' pack keeps exactly its own mod set: merging the public base and its
 new mods needs Artem's word.
 
+**Public upstream: prepared, off.** `zentixua/open-skies` (the public pack) shares this history. Nothing is merged
+from it until Artem decides that this pack becomes "public base plus our extras" (it would bring the public pack's new
+mods to the friends' world and server). Then: `git remote add upstream https://github.com/zentixua/open-skies.git`;
+record the public switch commit once with `git merge -s ours <that commit>` (nothing changes here, later merges carry
+only real changes); after that merge `upstream/main` by PR, keeping this repository's README, version line, configs
+and friends-only mods.
+
 ## People and rules
 
 - Author/host: **Artem** (GitHub zentixua, in-game ZentixUA). Friends: **ENOTzRPG**, **WallyFillmark**.
