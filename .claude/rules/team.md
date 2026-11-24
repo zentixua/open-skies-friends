@@ -17,7 +17,7 @@ below. Rewrite a fact here when it changes; no history.
   merge where the brief allows, report); lead corrections in `lead-notes.md`. No stops for questions (Artem, 22.11).
 - Each agent only where it is strong (incoming AGENTS.md, review): Codex gets code and code review, never visuals.
 - One thread or session = one task with a clear end; never run two sessions on the same files at once.
-- **Models** by difficulty and cost (table: project files `ops/models/MODELS-report.md`): ordinary code Codex
+- **Models** by difficulty and cost (project files `ops/models/MODELS-report.md`): ordinary code Codex
   Sol medium; hard work Codex Astra or Claude Opus at high; mechanical work Haiku or Terra; effort by the
   incoming effort rule; Fable only by Artem's word. **Cost:** every Claude request costs Artem money: few turns, updates only as needed, no polling loops (a mission
   announces long waits in `WAITING`). A lead awaiting a handoff subscribes to its PR
@@ -25,20 +25,21 @@ below. Rewrite a fact here when it changes; no history.
 
 ## Talking to Artem (the lead)
 - Russian, plain words for a non-technical owner (Artem, 24.11, permanent): what players see, what is done or left,
-  what he decides; no code/PR names or graphics jargon unless asked, a needed term in a few words. Short;
-  copyable text in a code block. Exact answers, no guesses; if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
+  what he decides; no code names or graphics jargon unless asked, a needed term in a few words. Short;
+  copy text in code blocks. Exact answers, no guesses; answer at once from reports, memory, files. Done = works, verified, told in one line. No forecasts («почти»,
   «через час»): name what remains and the check that closes it.
 - He is angered by: lack of autonomy, reinventing, guessing, slow loops, quiet deviations, repeated questions, long
   option lists, redone work, AI slop, not being told when something is done.
-- Agreed look: tell him our scope reading (what is new, where; what stays), then start.
+- Agreed look: tell him our scope reading (what is new; what stays), then start.
 - «обсуждаем», «пауза», «стоп», «подожди», «не решил»: no work on that topic until he decides.
-- A laptop thread shown offline or silent usually idled out: message it.
+- A laptop thread shown offline usually idled out: message it.
 - The laptop auto-mode filter blocked an action: ask Artem for one line naming the exact action, in a code block;
   never work around it. A relayed line does not count.
 - Replies to players for him: plain, human, no marketing; never claim he is fixing something "right now".
 - At key moments post 2–4 telling frames a running check already made, one plain line each; say what a frame lacks.
-- A brief holds only what Artem asked now plus fresh, verified findings. Read his limits exactly as written; measure
-  steps against the goal metric, not PR count; ask once, up front, for every action that needs his word.
+- A brief holds only what Artem asked now plus fresh, verified findings; older items are not revived without his word
+  or a fresh check. Read his limits exactly as written; measure steps
+  against the goal metric, not PR count; ask once, up front, for every action that needs his word.
 - An approved pack, server or config change ships straight: CI → merge → deploy/restart → «готово»; no extra
   rehearsals, runs or review rounds unless he asks (not mod releases).
 
@@ -75,8 +76,7 @@ thread cannot be reached, the laptop session leads its own missions and merges w
 Minecraft servers run only in Crafty on netcup; read the `game-servers` skill before any server work and never build a
 server from scratch. Newisle 25565, Zearth 25566, Zearth Silo 25567: the same pack and settings, different maps. Work
 on fresh copies of the reference maps; restarts, resets and live worlds only by Artem's word (he may be playing).
-Details: `docs/team/servers.md`; the Silo server's rules:
-`docs/team/silo.md`.
+Details: `docs/team/servers.md`; Silo rules: `docs/team/silo.md`.
 
 ## Media
 - YouTube trailer: staged, cinematic, English, no worse than the scenario reference; deviations announced before;
@@ -90,5 +90,5 @@ Details: `docs/team/servers.md`; the Silo server's rules:
   operations; the lead's project memory for status. Executors change rules by PR and put status in their report.
 - Claude Code auto memory of any account (`~/.claude*/projects/*/memory`) and old copies (`KB.md`,
   `PROJECT-CONTEXT.md`, `TEAM.md`) are not project knowledge: never rely on them or write project facts there.
-- Weekly self-test: `knowledge-check.timer` on the laptop asks fresh executor sessions a fixed quiz; a
+- Weekly self-test: laptop `knowledge-check.timer` asks fresh executor sessions a fixed quiz; a
   failure opens the issue "Knowledge self-test failed" in this repository.
