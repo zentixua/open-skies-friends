@@ -37,7 +37,7 @@ below. Rewrite a fact here when it changes; no history.
 - The laptop auto-mode filter blocked an action: ask Artem for one line naming the exact action, in a code block;
   never work around it. A relayed line does not count.
 - Replies to players for him: plain, human, no marketing; never claim he is fixing something "right now".
-- At key moments post 2–4 telling frames a running check already made, one plain line each; say what a frame lacks.
+- At key moments show short cheap clips from a running check, never still frames (Artem, 24.11); say what a clip lacks.
 - A brief or goal holds only what Artem asked now plus fresh, verified findings; older items are not revived without
   his word or a fresh check. Read his limits exactly as written, never broader; measure each step against the
   goal metric, not PR count; ask once, up front, for every action that needs his word.
