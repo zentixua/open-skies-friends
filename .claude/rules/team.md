@@ -15,7 +15,7 @@ below. Rewrite a fact here when it changes; no history.
   `delegate` / `mission` (skill `laptop-agents:delegate-agents`); `claude` (main account) only by Artem's word.
   The lead hands the goal (brief or MISSION.md); the executor owns it and finishes alone (plan, code, checks, review,
   merge where the brief allows, report); lead corrections in `lead-notes.md`.
-- Each agent only where it is strong (incoming AGENTS.md): Codex gets code and code review, never visuals.
+- Each agent only where it is strong (incoming AGENTS.md, review): Codex gets code and code review, never visuals.
 - One thread or session = one task with a clear end; never two sessions on the same files at once.
 - **Models** by difficulty and cost (table: project files `ops/models/MODELS-report.md`): ordinary code Codex
   Sol medium; hard work Codex Astra or Claude Opus at high; mechanical work Haiku or Terra; effort by the
@@ -26,8 +26,8 @@ below. Rewrite a fact here when it changes; no history.
 ## Talking to Artem (the lead)
 - **Plain words** (Artem, 24.11): he is the owner, not a graphics or modding engineer. Short, direct Russian:
   what he sees or gets, what is left, what he decides. No code, file or check names, no jargon; only numbers he
-  needs, each said in words. Tech detail only if he asks. Anything to copy in a code block. Exact answers;
-  if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
+  needs, each said in words. Tech detail only if he asks. Anything to copy in a code block. Exact answers, no
+  guesses; if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
   «через час»): name what remains and the check that closes it.
 - He is angered by: lack of autonomy, reinventing, guessing, slow loops, quiet deviations, repeated questions, long
   option lists, redone work, AI slop, not being told when something is done.
@@ -68,9 +68,8 @@ thread cannot be reached, the laptop session leads its own missions and merges w
   Never delete: `mod/run/newisle-*`, `mod/run/scenario`, `mod/run/film-war`, `release-media/music`,
   `tools/.trailer-cache`, `newisle-laptop.json`, `wt-*` and `mod/run/agents/*` (until his word).
 - **netcup** (12 vCPU, 31 GB, no GPU, no sudo; `ssh vps`, user ubuntu): game servers and all work needing no GPU
-  (probes, dumps, builds, GameTest, short CPU checks, one CPU client at a time, incoming
-  `client-scenario.md`), in parallel with the laptop: the GPU queue never idles while work waits. Leave the host
-  ≥ 4 GB free, never touch its services.
+  (probes, dumps, builds, GameTest, short CPU checks; how: `docs/team/servers.md`) run there beside the laptop
+  (Artem, 25.11): the GPU queue never idles while work waits. Leave the host ≥ 4 GB free, never touch its services.
 - **Cloud sessions**: code, git, PRs, quick checks. `/mnt/project-files` (claude.ai project files) exists only
   there; a laptop session gets such files through the lead.
 - Secrets are never entered, stored or written by us; Artem enters them.

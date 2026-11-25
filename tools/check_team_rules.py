@@ -28,7 +28,8 @@ ANCHORS = [
     ("A mission never stops to ask", "missions never stop for questions (Artem, 22.11)"),
     ("The lead never puts a how-question to him", "the lead decides how-questions itself (Artem, 22.11)"),
     ("**Plain words** (Artem, 24.11)", "Artem gets plain words, no jargon (Artem, 24.11)"),
-    ("the GPU queue never idles while work waits", "work needing no GPU runs on netcup in parallel (Artem, 25.11)"),
+    ("all work needing no GPU", "work needing no GPU (probes, dumps, builds, GameTest) runs on netcup (Artem, 25.11)"),
+    ("the GPU queue never idles while work waits", "no work waits behind the GPU queue (Artem, 25.11)"),
 ]
 
 
