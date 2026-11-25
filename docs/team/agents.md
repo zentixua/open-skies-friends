@@ -34,5 +34,8 @@
 - Frames or clips for Artem's review go in a private claude.ai artifact (made by the session that has them), its link
   posted in the thread; never pushed to a branch: the auto-mode filter refuses that as leakage, in a public or a private
   repository, and SendUserFile from a laptop session reaches only that session's desktop chat, not the project.
+- A repository's worktrees share one stash list: never `git stash` in a laptop worktree. A `pop` without an entry of your
+  own pops another session's latest work into yours (restore it with `git stash store` from `git fsck --no-reflog`'s
+  dangling commit). Swap a file with `cp` to test an old version, or commit work in progress to your own branch.
 - Browsing for research on the laptop: Camoufox on a hidden/virtual display, never flickering on Artem's desktop.
 - Laptop clock: `tsc=directsync` in /etc/default/limine keeps it right; his client logs are in local time.
