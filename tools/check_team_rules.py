@@ -6,7 +6,8 @@ would stop that); laptop sessions get it through the laptop-agents plugin (`git 
 a real file, not a symlink); Codex reads it as ~/.codex/AGENTS.md. It stays a short, non-empty regular file <= 8 KiB
 (every byte is loaded by every session) and never holds secrets.
 It also keeps Artem's permanent autonomy rule (21.11): agents decide everything inside an approved goal, and a mission
-stops only for an item on the "What needs Artem's word" list; and he is told things in plain words (24.11).
+stops only for an item on the "What needs Artem's word" list; he is told things in plain words (24.11); work needing
+no GPU runs on netcup beside the laptop (25.11).
 A rewrite that drops an anchor fails here.
 Run: python3 tools/check_team_rules.py [repo root]
 """
@@ -27,6 +28,7 @@ ANCHORS = [
     ("A mission never stops to ask", "missions never stop for questions (Artem, 22.11)"),
     ("The lead never puts a how-question to him", "the lead decides how-questions itself (Artem, 22.11)"),
     ("**Plain words** (Artem, 24.11)", "Artem gets plain words, no jargon (Artem, 24.11)"),
+    ("the GPU queue never idles while work waits", "work needing no GPU runs on netcup in parallel (Artem, 25.11)"),
 ]
 
 
