@@ -9,17 +9,24 @@ the Almighty host bridge (server only) is at https://github.com/zentixua/almight
 
 This repository, `zentixua/open-skies-friends`, is the friends' pack and the home of the team rules
 (`.claude/rules/team.md`, `docs/team/`). It moved here from `zentixua/open-skies` on 24.11.2026 with its full history;
-`zentixua/open-skies` becomes the public Open Skies pack (English, a template for other pack makers) once Artem
-confirms every instance and server has moved (README, "Переезд"). Until then both repositories serve this same pack
-(each runs the same `update.yml`). The friends' pack keeps exactly its own mod set: merging the public base and its
-new mods needs Artem's word.
+`zentixua/open-skies` is now the public Open Skies pack (English, a template for other pack makers).
 
-**Public upstream: prepared, off.** `zentixua/open-skies` (the public pack) shares this history. Nothing is merged
-from it until Artem decides that this pack becomes "public base plus our extras" (it would bring the public pack's new
-mods to the friends' world and server). Then: `git remote add upstream https://github.com/zentixua/open-skies.git`;
-record the public switch commit once with `git merge -s ours <that commit>` (nothing changes here, later merges carry
-only real changes); after that merge `upstream/main` by PR, keeping this repository's README, version line, configs
-and friends-only mods.
+**Public upstream: on** (Artem, 26.11.2026). The friends' pack is the public pack plus our extras: every public mod,
+and on top of them our own (Almighty and ServerCore on the server, TrueUUID and LAN Server Properties for logins,
+Flashback recording with Sinytra Connector, Essential, Vista with Moonlight and Iris Bonk, MapSyncer, BSL and Solas
+shaderpacks). Remote:
+`git remote add upstream https://github.com/zentixua/open-skies.git`. Two public commits are recorded as merged without
+their changes: `bcdf2ce` (the team rules moved here) by `git merge -s ours`, and `ca06b71` (the public switch) by the
+0.3.0 merge, which took only its new mods and kept everything else of ours. Later public changes come by PR: merge
+`upstream/main`, keep this repository's README, AGENTS.md, CI and tools, version line and friends-only mods and
+configs. Take new public mods (with their keys in `keybindings.txt` and a README row) and public removals of public
+mods; never a removal of ours. A shared `.pw.toml` in conflict keeps ours (the weekly update), then `packwiz refresh`.
+A new public config is taken unless it changes a setting of ours (the public `voxy-config.json`, Voxy distance 12, was
+left out in 0.3.0 for that reason). **Upstream PRs merge with a merge commit, never squash or rebase**: a squashed
+merge loses the recorded join, and the next upstream merge would delete every friends-only mod and file. Files that
+exist only for the public pack (`CHANGELOG.md`, `LICENSE`, `tools/check_sources.py`, `docs/` outside `docs/team` and
+`docs/releases`) come along unchanged and are not used here. The weekly update keeps updating every Modrinth mod,
+the public ones included.
 
 ## People and rules
 
@@ -75,8 +82,8 @@ tools/boot_check.py      ← the modpack boots from scratch: server reaches "Don
 
 Modpack address for packwiz-installer: `https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml`.
 Instances and servers still on the old addresses (`zentixua/open-skies/…`, or `zentixua/airstrike-pack/…`, which
-GitHub redirects there) get this pack only until `zentixua/open-skies` switches to the public pack; README "Переезд"
-moves them (one pre-launch command line).
+GitHub redirects there) get the public pack (since 24.11), without our extras; README "Переезд" moves them (one
+pre-launch command line).
 The modpack lives in `pack/`, not the root: repository files (README, CI, tools) stay out of the index and the game.
 
 ## Workflow
