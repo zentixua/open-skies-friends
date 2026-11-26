@@ -8,7 +8,9 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
 - CPU-rendered incoming clients (vanilla frames, incoming `client-scenario.md` "CPU rendering"): clone in
   `~/incoming-soft`, Java 21 in `~/jdk-21*`; environment `JAVA_HOME=~/jdk-21* ORG_GRADLE_PROJECT_noRecompile=1
   ORG_GRADLE_PROJECT_mcModsDir=run/ci-mods GRADLE_OPTS="-Dorg.gradle.daemon=false -Xmx1200m" INCOMING_SOFT_HEAP=1536m`,
-  then `tools/sandbox.sh start` / `shot` as on the laptop; one client at a time; copy frames back with `scp`.
+  then `tools/sandbox.sh start` / `shot` as on the laptop; one client at a time; copy frames back with `scp`. A
+  `tools/client_scenario.sh` run that generates a fresh world (`commands`) needs `INCOMING_SOFT_HEAP=3072m`: at 1536m
+  its 3.5 GB job ceiling stops the client during world creation.
 - Other work needing no GPU (probes, dumps, builds, GameTest; team.md Machines) uses the same clone and environment, one
   heavy JVM at a time beside the CPU client, at the lowest CPU priority (`nice -n 19`, Gradle `--max-workers=4`): the
   play servers keep their cores. Start it only when `free -m` leaves its heap (GameTest: a quarter of RAM unless `-Xmx`
