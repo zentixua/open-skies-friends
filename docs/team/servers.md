@@ -9,6 +9,11 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   `~/incoming-soft`, Java 21 in `~/jdk-21*`; environment `JAVA_HOME=~/jdk-21* ORG_GRADLE_PROJECT_noRecompile=1
   ORG_GRADLE_PROJECT_mcModsDir=run/ci-mods GRADLE_OPTS="-Dorg.gradle.daemon=false -Xmx1200m" INCOMING_SOFT_HEAP=1536m`,
   then `tools/sandbox.sh start` / `shot` as on the laptop; one client at a time; copy frames back with `scp`.
+- Full-pack frames (store and README shots, Voxy and shaders included) on its CPU: install the client with the pack's
+  `tools/boot_check.py client … --world …` under `xvfb-run`, then start it on its own Xvfb with
+  `MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460`: Ubuntu 24.04's llvmpipe offers only GLSL 4.50, Voxy's
+  shaders fail and the game exits. Scenes by chat commands (XTEST keys), F1/F2 for frames; with Complementary a
+  1080p frame settles in about a minute. netcup has Go (`go install` packwiz there; the laptop has none).
 - Other work needing no GPU (probes, dumps, builds, GameTest; team.md Machines) uses the same clone and environment, one
   heavy JVM at a time beside the CPU client, at the lowest CPU priority (`nice -n 19`, Gradle `--max-workers=4`): the
   play servers keep their cores. Start it only when `free -m` leaves its heap (GameTest: a quarter of RAM unless `-Xmx`
