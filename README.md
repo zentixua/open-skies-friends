@@ -52,13 +52,13 @@ cd pack && packwiz mr export      # → Open Skies-<версия>.mrpack
 ### Переезд
 
 С версии 0.2.0 сборка друзей живёт в этом репозитории, `zentixua/open-skies-friends`. По старому адресу
-`zentixua/open-skies` (и `zentixua/airstrike-pack`, который ведёт туда же) будет публичная сборка Open Skies с другим
-набором модов: экземпляр со старым адресом поставит её и не зайдёт на наши серверы. Перевести экземпляр, миры и
+`zentixua/open-skies` (и `zentixua/airstrike-pack`, который ведёт туда же) с 24.11 — публичная сборка Open Skies без
+наших модов: экземпляр со старым адресом уже поставил её и не зайдёт на наши серверы. Перевести экземпляр, миры и
 настройки остаются:
 1. Prism: экземпляр → «Изменить…» → «Параметры» → «Пользовательские команды» → в «Предстартовая команда» всю строку
    заменить на
    `"$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml`
-2. Запустить игру как обычно: набор модов тот же, packwiz-installer только сверит файлы.
+2. Запустить игру как обычно: packwiz-installer докачает наши моды (запись, Essential, Vista, TrueUUID и другие).
 
 Или новый экземпляр из `Open-Skies.zip` (выше); миры тогда перенести из `saves` старого экземпляра (Prism: «Папка»).
 
@@ -90,7 +90,7 @@ cd pack && packwiz mr export      # → Open Skies-<версия>.mrpack
 | мир вокруг | Subtle Effects (мелкие частицы и звуки: искры огня, дым горящих мобов, рябь, листья; + Fzzy Config, Kotlin for Forge; стоит и на сервере, ниже), Particle Rain (дождь, снег и пыльные бури частицами), AmbientSounds (звуки природы по биому, высоте и времени; + CreativeCore), LambDynamicLights (свет от факела в руке, горящих мобов и снарядов), Contraption Lights (свет фонарей на аппаратах Create и кораблях Sable падает на мир), Sound Physics Remastered (эхо в помещениях и глушение звука стенами для звуков мира), Burnt (огонь прогорает: обугленные дома и деревья, обрушение горящих построек) |
 | камеры и экраны | Vista (+ Moonlight Lib): телевизоры из блоков показывают живую картинку с камеры-видоискателя (ниже); Iris Bonk (только у игрока): экраны Vista и другие шейдеры модов не чернеют с шейдерпаком |
 | выживание и исследование (из публичной сборки) | Farmer's Delight и Create: Central Kitchen (+ Create: Dragons Plus), Sophisticated Backpacks и Storage (+ Sophisticated Core), Lootr (у каждого игрока свой лут в сундуках), Comforts (спальники и гамаки), AppleSkin; подземелья, храмы, крепости и мосты YUNG's (+ YUNG's API), деревни Towns and Towers (+ Cristel Lib) |
-| мультиплеер (из публичной сборки) | Open Parties and Claims (приваты и группы: `'` или `/openpac-claims`), Simple Voice Chat (голосовой чат, по выбору: при импорте `.mrpack` без галочки; серверу нужен открытый UDP-порт 24454), Chunky (прогрузка мира заранее), Clumps, Better Advancements, Controlling (+ Searchables) |
+| мультиплеер и удобство (из публичной сборки) | Open Parties and Claims (приваты и группы: `'` или `/openpac-claims`), Simple Voice Chat (голосовой чат, по выбору: при импорте `.mrpack` без галочки; на наших серверах пока не работает — ему нужен свой открытый UDP-порт у каждого сервера, это по слову Артёма), Chunky (прогрузка мира заранее), Clumps (опыт падает кучками), Better Advancements, Controlling (+ Searchables; поиск в «Управлении»; оба только у игрока) |
 | мультиплеер и удобство | Essential, TrueUUID (вход на сервер, ниже), LAN Server Properties (временно, ниже), JEI (+ MezzConfig), Jade, Jade Sable Compat, Xaero's Minimap и World Map (+ MapSyncer: готовый снимок всей карты с сервера), Create – Xaero's map, GraveStone и его патч для Sable, Mouse Tweaks, No Chat Reports |
 | запись (по выбору) | Flashback, Flashback NeoForge Fixed, Sinytra Connector |
 | клавиши | Default Options (+ Balm): раскладка сборки (ниже) |
@@ -276,7 +276,7 @@ NeoForge запускает все действия на нажатой клав
 | A, D | на элитрах — рыскание (Do a Barrel Roll), крен и тангаж — мышью |
 | K, O | шейдеры вкл/выкл, выбор шейдеров (Iris) |
 | Shift, Num 0, Num 1 | подробности, настройки и показ подсказки Jade |
-| Alt+B, Alt+C, Alt+Z, Alt+X | открыть рюкзак, его улучшения инвентаря, улучшения 1 и 2 вкл/выкл (Sophisticated Backpacks) |
+| Alt+B, Alt+C, Alt+Z, Alt+X | открыть рюкзак; переложить из рюкзака в контейнер, на который смотришь; улучшения 1 и 2 вкл/выкл (Sophisticated Backpacks) |
 | Caps Lock, Alt+V, Alt+M | говорить, пока зажата; меню голосового чата; выключить микрофон (Simple Voice Chat) |
 | ' | меню Open Parties and Claims |
 
@@ -324,7 +324,7 @@ Default Options — только у игроков. Его библиотека 
 
 | версия | мод | что изменилось |
 |---|---|---|
-| 0.3.0 | 3.13.0 | Теперь это публичная Open Skies плюс наши моды. Новое: Farmer's Delight с Create: Central Kitchen, рюкзаки и хранилища Sophisticated, свой лут у каждого в сундуках (Lootr), спальники Comforts, AppleSkin, подземелья и храмы YUNG's и деревни Towns and Towers (только в новых чанках мира), приваты Open Parties and Claims, голосовой чат Simple Voice Chat (по выбору), Chunky, Clumps, Better Advancements, Controlling. Новые клавиши: Alt+B — рюкзак, Caps Lock — говорить, ' — приваты. Обновление автоматическое; серверу — после перезапуска. |
+| 0.3.0 | 3.13.0 | Теперь это публичная Open Skies плюс наши моды. Новое: Farmer's Delight с Create: Central Kitchen, рюкзаки и хранилища Sophisticated, свой лут у каждого в сундуках (Lootr), спальники Comforts, AppleSkin, подземелья и храмы YUNG's и деревни Towns and Towers (только в новых чанках мира), приваты Open Parties and Claims, голосовой чат Simple Voice Chat (по выбору; на наших серверах заработает после настройки портов), Chunky, Clumps, Better Advancements, Controlling. Новые клавиши: Alt+B — рюкзак, Caps Lock — говорить, ' — приваты. Обновление автоматическое; серверу — после перезапуска. |
 | 0.2.0 | 3.13.0 | Сборка переехала в репозиторий zentixua/open-skies-friends: новый адрес в предстартовой команде экземпляра и новый `Open-Skies.zip` ([переезд](#переезд)). Набор модов тот же; по старому адресу zentixua/open-skies будет публичная сборка. |
 | 0.1.64 | 3.13.0 | Обновлены моды: Create: Diesel Generators 1.21.1-1.3.16, CreativeCore 2.13.55, Entity Culling 1.12.2, Euphoria Patches 1.11.2-r5.10-neoforge, Flashback Neoforge Fixed 1.0.19, Geckolib 4.9.4, Iris Bonk 1.21.1-0.1.5, Just Enough Items (JEI) 19.76.1.478, LOD Server Support v0.23.0-beta.1+neoforge+mc1.21.1, Particle Rain v4.0.4+1.21.1-neoforge, Reese's Sodium Options mc1.21.1-2.2.6+neoforge, Subtle Effects 1.15.3, Vista 1.21.1-5.6.10, Complementary Shaders - Unbound r5.10, MakeUp - Ultra Fast 9.6a. Обновление автоматическое. |
 | 0.1.63 | 3.13.0 | Обновлены моды: Contraption Lights (Bi-directional Coloured Dynamic Lights) 1.6.0, CreativeCore 2.13.54, Entity Culling 1.12.1, Flashback Neoforge Fixed 1.0.18, Kotlin for Forge 5.13.0, LOD Server Support v0.22.0-beta.1+neoforge+mc1.21.1, MezzConfig 0.7.1, Subtle Effects 1.15.2. Обновление автоматическое. |
