@@ -33,6 +33,9 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   to it recreate the container (`docker compose up -d crafty`), which stops every server: stop them first through
   Crafty, then start them again; Crafty does not start them by itself. A changed container address needs
   `tailscale serve --tcp 25571` again.
+- Simple Voice Chat needs one UDP port per server, published in the compose file: 24454 (25565), 24455 (25566), 24456
+  (25567), each set as `port` in that server's `config/voicechat/voicechat-server.properties`. It cannot share the game
+  port: Sable holds UDP there. Check: each server's log says "Voice chat server started at port <its port>".
 - `sysctls: net.ipv4.tcp_notsent_lowat=16384` caps unsent data per game socket at 16 KiB (the host default is
   unlimited). Without the cap a far-terrain or LOD burst queues megabytes in the socket ahead of movement and
   keepalive packets, which then wait 50–200 ms on a mobile line. With it, the kernel stops taking new data at the
