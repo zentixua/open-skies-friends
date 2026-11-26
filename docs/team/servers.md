@@ -22,6 +22,21 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   text only; stop it once its task is done (it answers every message and burns quota); a replacement first checks for
   the old process and its jobs.
 
+## Crafty container
+- `~/airstrike-server/crafty/docker-compose.yml`, container `airstrike_crafty`. Game ports are published there, TCP and
+  UDP (Sable syncs sub-levels over UDP on the game port); the panel and the Almighty bridge on loopback only. Changes
+  to it recreate the container (`docker compose up -d crafty`), which stops every server: stop them first through
+  Crafty, then start them again; Crafty does not start them by itself. A changed container address needs
+  `tailscale serve --tcp 25571` again.
+- `sysctls: net.ipv4.tcp_notsent_lowat=16384` caps unsent data per game socket at 16 KiB (the host default is
+  unlimited). Without the cap a far-terrain or LOD burst queues megabytes in the socket ahead of movement and
+  keepalive packets, which then wait 50–200 ms on a mobile line. With it, the kernel stops taking new data at the
+  limit (kernel `Documentation/networking/ip-sysctl.rst`, tcp_notsent_lowat; default UINT_MAX), so the server keeps
+  the queue and urgent packets are not stuck behind it. 16 KiB is Cloudflare's tuned value for low-latency streams
+  (blog "HTTP/2 prioritization with NGINX"); Docker sets namespaced `net.*` sysctls per container (`docker run
+  --sysctl`). Check:
+  `docker exec airstrike_crafty cat /proc/sys/net/ipv4/tcp_notsent_lowat` prints 16384.
+
 ## Crafty play servers
 - online-mode=false + TrueUUID (licensed players verified via Mojang, unknown names offline only), whitelist, op only
   ZentixUA; plain offline mode on a public IP is unsafe. A new player gets the right UUID in
