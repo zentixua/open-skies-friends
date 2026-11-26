@@ -14,7 +14,10 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   play servers keep their cores. Start it only when `free -m` leaves its heap (GameTest: a quarter of RAM unless `-Xmx`
   is given) plus the 4 GB reserve, and `df -h ~` has room for what it writes (world copies, frames).
 - The laptop reaches it with `ssh vps` (Tailscale, user ubuntu). Slow Tailscale upload: check the laptop's wlan IPv6
-  MTU first (a mobile router announces 1280; `nmcli` ipv6.mtu 1480 on that connection fixes it).
+  MTU first (a mobile router announces 1280; `nmcli` ipv6.mtu 1480 on that connection fixes it). Downloads through the
+  tailnet carry about 2 MB/s, through netcup's public address 12–16 MB/s (the route players use): a laptop client
+  measuring a netcup server tunnels over the public address (`ssh -o HostName=<public IP> -L …`), or the tailnet paces
+  what players get faster.
 - A netcup Remote Control session starts only on Artem's message in that thread, hears only his messages and returns
   text only; stop it once its task is done (it answers every message and burns quota); a replacement first checks for
   the old process and its jobs.
