@@ -33,6 +33,10 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   world): Chunky on a prep server, then `/lsslod store backfill start` (never while Chunky runs). The store drops
   itself on registry drift: re-run backfill. A golden reset bumps .mca header stamps of changed chunks (reset.sh /
   mark_stale.py), or clients keep blasted LODs.
+- `reset.sh` copies golden before it deletes the played world, then starts a background `--stage` that makes another
+  full golden copy for the next reset: on a nearly full netcup disk both fail (a half copy fills the disk under
+  running servers). Check `df -h ~` first; with less free than golden plus a margin, compare, delete the played world,
+  then copy (mark_stale plan kept in memory) and skip the stage.
 - Every Crafty server's `start.sh` (and `~/airstrike-server/template/start.sh`) installs the pack with
   packwiz-installer from `https://raw.githubusercontent.com/zentixua/open-skies-friends/main/pack/pack.toml`. A
   server still on `zentixua/open-skies/…` gets the public Open Skies pack once that repository switches (another mod
