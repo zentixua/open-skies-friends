@@ -9,13 +9,13 @@ below. Rewrite a fact here when it changes; no history.
   pack: ENOTzRPG, WallyFillmark.
 - **Lead**: the Claude of the claude.ai project thread. Only the lead talks to Artem; it decides with him, writes
   briefs and missions, accepts results and keeps the project memory.
-- **Executors** on the laptop: claude2 (Artem's second Claude account) and Codex. **Codex: off** (Artem, 24.11):
-  claude2 does all executor work and, in a fresh session at the same effort, all a rule gives Codex (code, review,
-  release audit); `delegate`/`mission` refuse codex. Deleting this sentence brings Codex back. Launched only through
-  `delegate` / `mission` (skill `laptop-agents:delegate-agents`); `claude` (main account) only by Artem's word.
+- **Executors**: claude2 (Artem's second Claude account) and Codex, only through `delegate` / `mission` (skill
+  `laptop-agents:delegate-agents`), **in the cloud by default** (Artem, 27.11); the laptop only for what needs it
+  (the skill's "Where it runs"). **Codex: off** (Artem, 24.11): claude2 does all executor work and, in a fresh session
+  at the same effort, all a rule gives Codex (code, review, release audit); `delegate`/`mission` refuse codex.
+  Deleting this sentence brings Codex back. `claude` (main account) only by Artem's word.
   The lead hands the goal (brief or MISSION.md); the executor owns it and finishes alone (plan, code, checks, review,
   merge where the brief allows, report); lead corrections in `lead-notes.md`.
-- Each agent only where it is strong (incoming AGENTS.md, review): Codex gets code and code review, never visuals.
 - One thread or session = one task with a clear end; never two sessions on the same files at once.
 - **Models** by difficulty and cost (table: project files `ops/models/MODELS-report.md`): ordinary code Codex
   Sol medium; hard work Codex Astra or Claude Opus at high; mechanical work Haiku or Terra; effort by the
@@ -67,11 +67,11 @@ thread cannot be reached, the laptop session leads its own missions and merges w
   in worktrees from `origin/main`. Agent units share `agents.slice` (memory cap); temp in `$TMPDIR`, not `/tmp`.
   Never delete: `mod/run/newisle-*`, `mod/run/scenario`, `mod/run/film-war`, `release-media/music`,
   `tools/.trailer-cache`, `newisle-laptop.json`, `wt-*` and `mod/run/agents/*` (until his word).
-- **netcup** (12 vCPU, 31 GB, no GPU, no sudo; `ssh vps`, user ubuntu): game servers and all work needing no GPU
+- **netcup** (12 vCPU, 31 GB, no GPU, no sudo; `ssh vps`, user ubuntu): game servers and, from the laptop, all work needing no GPU
   (probes, dumps, builds, GameTest, short CPU checks; how: `docs/team/servers.md`) run there beside the laptop
   (Artem, 25.11): the GPU queue never idles while work waits. Leave the host ≥ 4 GB free, never touch its services.
-- **Cloud sessions**: code, git, PRs, quick checks. `/mnt/project-files` (claude.ai project files) exists only
-  there; a laptop session gets such files through the lead.
+- **Cloud sessions** (threads, executors): code, git, PRs, builds, GameTest. `/mnt/project-files` (claude.ai
+  project files) exists only in project threads; a laptop session gets such files through the lead.
 - Secrets are never entered, stored or written by us; Artem enters them.
 - Agent environment traps (auto-mode filter, cloud permissions, branch deletion, reset): `docs/team/agents.md`.
 
@@ -79,8 +79,7 @@ thread cannot be reached, the laptop session leads its own missions and merges w
 Minecraft servers run only in Crafty on netcup; read the `game-servers` skill before any server work and never build a
 server from scratch. Newisle 25565, Zearth 25566, Zearth Silo 25567: the same pack and settings, different maps. Work
 on fresh copies of the reference maps; restarts, resets and live worlds only by Artem's word (he may be playing).
-Details (netcup, Crafty, golden worlds, test jars): `docs/team/servers.md`; Silo server rules:
-`docs/team/silo.md`.
+Details: `docs/team/servers.md`; Silo rules: `docs/team/silo.md`.
 
 ## Media
 - Every mod's store pages and README first screen use the popular-mod layout (incoming `docs/store/listing.md`).
