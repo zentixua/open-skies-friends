@@ -14,6 +14,11 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   `MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460`: Ubuntu 24.04's llvmpipe offers only GLSL 4.50, Voxy's
   shaders fail and the game exits. Scenes by chat commands (XTEST keys), F1/F2 for frames; with Complementary a
   1080p frame settles in about a minute. netcup has Go (`go install` packwiz there; the laptop has none).
+  Memory: the 1080p full-pack client on llvmpipe takes over 5 GB beyond its heap (a 2.5 GB heap was killed at a 5 GB
+  cap while loading), and an Incoming nuke adds more. Start it only inside a capped unit (`systemd-run --user
+  -p MemoryMax=<free − 4 GB> -p MemorySwapMax=0`, `oom_score_adj` 1000), never bare: an uncapped client with a 5 kt
+  nuke (27.11) took the host's last memory, and two play servers died on their watchdog and restarted. If free
+  memory minus the 4 GB reserve is below ~9 GB, shoot elsewhere or later.
 - Other work needing no GPU (probes, dumps, builds, GameTest; team.md Machines) uses the same clone and environment, one
   heavy JVM at a time beside the CPU client, at the lowest CPU priority (`nice -n 19`, Gradle `--max-workers=4`): the
   play servers keep their cores. Start it only when `free -m` leaves its heap (GameTest: a quarter of RAM unless `-Xmx`
