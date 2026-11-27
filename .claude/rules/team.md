@@ -70,10 +70,8 @@ thread cannot be reached, the laptop session leads its own missions and merges w
 - **netcup** (12 vCPU, 31 GB, no GPU, no sudo; `ssh vps`, user ubuntu): game servers and all work needing no GPU
   (probes, dumps, builds, GameTest, short CPU checks; how: `docs/team/servers.md`) run there beside the laptop
   (Artem, 25.11): the GPU queue never idles while work waits. Leave the host ≥ 4 GB free, never touch its services.
-- **Cloud sessions**: code, git, PRs, quick checks. Executor work that needs no laptop (code, review, builds,
-  GameTest, research) runs in claude2's cloud by default (Artem, 27.11): `delegate cloud`, `mission start cloud`; no
-  laptop slot, same claude2 quota. The laptop only for the GPU, game clients and frames, netcup, laptop-only files. `/mnt/project-files` (claude.ai project files) exists only
-  there; a laptop session gets such files through the lead.
+- **Cloud** (Artem, 27.11): executor work needing no laptop (`delegate cloud`, `mission start cloud`; no laptop
+  slot). `/mnt/project-files`: claude.ai sessions only (laptop: via lead).
 - Secrets are never entered, stored or written by us; Artem enters them.
 - Agent environment traps (auto-mode filter, cloud permissions, branch deletion, reset): `docs/team/agents.md`.
 
