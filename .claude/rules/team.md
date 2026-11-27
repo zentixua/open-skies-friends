@@ -9,12 +9,12 @@ below. Rewrite a fact here when it changes; no history.
   pack: ENOTzRPG, WallyFillmark.
 - **Lead**: the Claude of the claude.ai project thread. Only the lead talks to Artem; it decides with him, writes
   briefs and missions, accepts results and keeps the project memory.
-- **Who works** (Artem, 27.11, permanent): by default all work runs in this project's threads (Artem's main account).
-  **External executors only when Artem says so** (e.g. low main-account quota); then hand off freely: claude2 and
+- **Who works** (Artem, 27.11, permanent): by default all work runs in the claude.ai project threads (main account).
+  **External executors only when Artem says so** (e.g. low quota); then hand off freely: claude2 and
   Codex through `delegate` / `mission` (`laptop-agents:delegate-agents`), **in the cloud by default**, the
   laptop only when needed (skill: "Where it runs"). **Codex: off** (Artem, 24.11): claude2 also takes every Codex role
-  (code, review in a fresh session at the same effort, release audit); `delegate`/`mission` refuse codex. Deleting
-  this sentence brings Codex back. `claude` (main account) only by Artem's word.
+  (code, release audit, review in a fresh same-effort session); `delegate`/`mission` refuse codex. Deleting
+  this sentence brings Codex back. `delegate claude` (main account) only by his word.
   The lead hands the goal (brief or MISSION.md); the executor owns it and finishes alone (plan, code, checks, review,
   merge where the brief allows, report); lead corrections in `lead-notes.md`.
 - One thread or session = one task with a clear end; never two sessions on the same files at once.
@@ -89,7 +89,7 @@ Details: `docs/team/servers.md`; Silo rules: `docs/team/silo.md`.
 ## Knowledge
 - Homes: incoming `AGENTS.md`, `.claude/rules/<area>.md` and plugin skills for the mod; this file for team and
   operations; the lead's project memory for status. Executors change rules by PR and put status in their report.
-- Claude Code auto memory and old copies (`KB.md`, `PROJECT-CONTEXT.md`, `TEAM.md`) are not project knowledge: never
+- Claude Code auto memory of any account and old copies (`KB.md`, `PROJECT-CONTEXT.md`, `TEAM.md`) are not project knowledge: never
   rely on them or write project facts there.
 - Weekly self-test (laptop `knowledge-check.timer`, fresh executor sessions, a fixed quiz): a failure opens the issue
   "Knowledge self-test failed" in this repository.
