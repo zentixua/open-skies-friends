@@ -9,7 +9,7 @@ below. Rewrite a fact here when it changes; no history.
   pack: ENOTzRPG, WallyFillmark.
 - **Lead**: the Claude of the claude.ai project thread. Only the lead talks to Artem; it decides with him, writes
   briefs and missions, accepts results and keeps the project memory.
-- **Executors** on the laptop: claude2 (Artem's second Claude account) and Codex. **Codex: off** (Artem, 24.11):
+- **Executors**: claude2 (Artem's second Claude account) and Codex. **Codex: off** (Artem, 24.11):
   claude2 does all executor work and, in a fresh session at the same effort, all a rule gives Codex (code, review,
   release audit); `delegate`/`mission` refuse codex. Deleting this sentence brings Codex back. Launched only through
   `delegate` / `mission` (skill `laptop-agents:delegate-agents`); `claude` (main account) only by Artem's word.
@@ -70,7 +70,9 @@ thread cannot be reached, the laptop session leads its own missions and merges w
 - **netcup** (12 vCPU, 31 GB, no GPU, no sudo; `ssh vps`, user ubuntu): game servers and all work needing no GPU
   (probes, dumps, builds, GameTest, short CPU checks; how: `docs/team/servers.md`) run there beside the laptop
   (Artem, 25.11): the GPU queue never idles while work waits. Leave the host ≥ 4 GB free, never touch its services.
-- **Cloud sessions**: code, git, PRs, quick checks. `/mnt/project-files` (claude.ai project files) exists only
+- **Cloud sessions**: code, git, PRs, quick checks. Executor work that needs no laptop (code, review, builds,
+  GameTest, research) runs in claude2's cloud by default (Artem, 27.11): `delegate cloud`, `mission start cloud`; no
+  laptop slot, same claude2 quota. The laptop only for the GPU, game clients and frames, netcup, laptop-only files. `/mnt/project-files` (claude.ai project files) exists only
   there; a laptop session gets such files through the lead.
 - Secrets are never entered, stored or written by us; Artem enters them.
 - Agent environment traps (auto-mode filter, cloud permissions, branch deletion, reset): `docs/team/agents.md`.
