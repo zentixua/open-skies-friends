@@ -74,9 +74,10 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   NeoForge on each server with the official installer (Artem's line).
 - Artem's playing Prism instance is never edited, not even for a test: its pack auto-update stays on. A test build
   (`X.Y.Z-rc.N`) for him goes into a copy made with Prism's own "Copy" (name it `Open Skies RC`), never into the
-  original. A test build on a server needs packwiz disabled in its `start.sh` with a backup; restore it with the
-  release. Clients and servers on different Incoming versions cannot connect (NeoForge refuses them). Play
-  servers run without `MaxTenuringThreshold=1`/`SurvivorRatio=32` (early promotion doubled heap peaks).
+  original; clear the copy's PreLaunchCommand (packwiz would add the pack's jar beside the test one) and delete the
+  copy after the release. A test build on a server needs packwiz disabled in its `start.sh` with a backup; restore it
+  with the release. Clients and servers on different Incoming versions cannot connect (NeoForge refuses them).
+- Play servers run without `MaxTenuringThreshold=1`/`SurvivorRatio=32` (early promotion doubled heap peaks).
 - `airstrike-world reset tiktok` deletes the played world; never say it is kept.
 - Almighty full-map war for TikTok: driver `~/airstrike-server/gm-agent/war/war.py` (`tiktok prep` → `run --minutes N
   --follow ZentixUA [--mspt 30]` → `stop` → `teardown`); one spectator bot per side owns its SAMs (console strikes are
