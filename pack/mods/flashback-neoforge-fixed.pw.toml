@@ -1,16 +1,12 @@
 name = "Flashback Neoforge Fixed"
-filename = "flashback_neoforge_fixed-1.0.19.jar"
+filename = "flashback_neoforge_fixed-1.0.19-os1.jar"
 side = "client"
+pin = true
 
 [download]
-url = "https://cdn.modrinth.com/data/QaOcZcLU/versions/Fglj63ER/flashback_neoforge_fixed-1.0.19.jar"
+url = "https://raw.githubusercontent.com/zentixua/open-skies-friends/8464eaf41a0b3f1fef03a821a912749cf8315c67/vendor/flashback-neoforge-fixed/flashback_neoforge_fixed-1.0.19-os1.jar"
 hash-format = "sha512"
-hash = "61e59bfe229bbc7d5bbeee64ce499cab6739220e60e31d2d9aa13dd043c3e1dd456c7601731816710794a242a427191bddede733293bf976f4afa3a34bed50e2"
-
-[update]
-[update.modrinth]
-mod-id = "QaOcZcLU"
-version = "Fglj63ER"
+hash = "6130c822bae792dc42a49b91980636cbe2746ee828ea2d7e52976099b1670d6f86638a0f4f63ca1a93343215cfe3d39e9ea7cdb445b39e6ff93cbe5e88e9fb7f"
 
 [option]
 optional = true

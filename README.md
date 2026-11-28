@@ -92,7 +92,7 @@ cd pack && packwiz mr export      # → Open Skies-<версия>.mrpack
 | выживание и исследование (из публичной сборки) | Farmer's Delight и Create: Central Kitchen (+ Create: Dragons Plus), Sophisticated Backpacks и Storage (+ Sophisticated Core), Lootr (у каждого игрока свой лут в сундуках), Comforts (спальники и гамаки), AppleSkin; подземелья, храмы, крепости и мосты YUNG's (+ YUNG's API), деревни Towns and Towers (+ Cristel Lib) |
 | мультиплеер и удобство (из публичной сборки) | Open Parties and Claims (приваты и группы: `'` или `/openpac-claims`), Simple Voice Chat (голосовой чат, по выбору: при импорте `.mrpack` без галочки; на наших серверах работает), Chunky (прогрузка мира заранее), Clumps (опыт падает кучками), Better Advancements, Controlling (+ Searchables; поиск в «Управлении»; оба только у игрока) |
 | мультиплеер и удобство | Essential, TrueUUID (вход на сервер, ниже), LAN Server Properties (временно, ниже), JEI (+ MezzConfig), Jade, Jade Sable Compat, Xaero's Minimap и World Map (+ MapSyncer: готовый снимок всей карты с сервера), Create – Xaero's map, GraveStone и его патч для Sable, Mouse Tweaks, No Chat Reports |
-| запись (по выбору) | Flashback, Flashback NeoForge Fixed, Sinytra Connector |
+| запись (по выбору) | Flashback, Flashback NeoForge Fixed (своя сборка, ниже), Sinytra Connector |
 | клавиши | Default Options (+ Balm): раскладка сборки (ниже) |
 | замер производительности | spark: на сервере `/spark tps`, `/spark health`, `/spark profiler` (операторы), у себя в клиенте — `/sparkc` |
 | только на сервере | Almighty (мост ведущего, ниже), ServerCore (производительность сервера, ниже) |
@@ -128,6 +128,14 @@ find id for subtle_effects:entity.villager.snore` (0.1.44, запись рядо
 Particle Rain (рисуются только у игрока), окна и типы аргументов команд CreativeCore (их присылает только сервер),
 типы света Contraption Lights (свой реестр Veil у клиента). Проверяет CI: клиент с Flashback пишет повтор на сервере
 сборки рядом со спящим жителем.
+
+Flashback NeoForge Fixed — своя сборка 1.0.19+os1 (`vendor/flashback-neoforge-fixed/`: jar, лицензия MIT автора
+tatuto-riku, изменение и как собрано). Отличие от выпуска 1.0.19 одно: в повтор не пишется рельеф вдали, который
+присылает сервер (`incoming:voxy_chunk_z`, `incoming:voxy_chunk`, `incoming:lod_batch_finished`, `lss:voxel_column`).
+Повтору он не нужен: при просмотре Voxy берёт дальний рельеф из своего хранилища у того, кто записывал. А в записи он
+занимал три четверти файла, и сохранение повтора замирало на секунды.
+Сборка стоит, пока автор не даст модам способ не писать свои пакеты в повтор
+([issue](https://github.com/tatuto-riku/flashback-neoforge-fixed/issues/8)); автообновление её не трогает.
 
 Карта мира на сервере. В одиночке Xaero's World Map читает карту прямо из файлов мира, а в мультиплеере обычно рисует
 только чанки, которые сервер прислал игроку. В сборке LOD Server Support (LSS) передаёт дальний рельеф и в Xaero:
@@ -311,6 +319,8 @@ Default Options — только у игроков. Его библиотека 
   failed». Сразу, не дожидаясь расписания: запустить `update` вручную во вкладке Actions.
 - Закреплённые моды (`pin = true`) обновляются только вручную: Voxy и Roxy (ниже) и Create, Sable, Create Aeronautics,
   Immersive Aircraft — на них проверяются Incoming и Almighty, их версии меняются вместе с версиями в этих модах.
+- Flashback NeoForge Fixed — своя сборка (выше), у неё нет источника обновлений: новую версию собрать так же
+  (`vendor/flashback-neoforge-fixed/README.md`) или вернуть выпуск с Modrinth, когда автор даст нужную настройку.
 - Мод вручную: `packwiz update <имя>` (или `packwiz modrinth add --project-id <slug> --version-id <id>` — точная
   версия), потом `packwiz refresh`. CI проверяет, что `index.toml` свежий.
 - Версию сборки (`version` в `pack.toml`) поднимать при каждом изменении состава: у всех игроков должен быть один набор.
@@ -324,6 +334,7 @@ Default Options — только у игроков. Его библиотека 
 
 | версия | мод | что изменилось |
 |---|---|---|
+| 0.3.2 | 3.14.0 | Запись Flashback на сервере с дальней прорисовкой больше не замирает при сохранении: своя сборка Flashback NeoForge Fixed 1.0.19+os1 не пишет в повтор дальний рельеф, при просмотре он берётся из хранилища Voxy ([ниже](#что-внутри)). Запись ядерного удара на 4 минуты: повтор 411 → 106 МБ, сохранение 5,9 → 0,5 с. Обновление автоматическое. |
 | 0.3.1 | 3.14.0 | Incoming 3.14.0 ([заметки](https://github.com/zentixua/incoming/blob/main/docs/releases/3.14.0.md)). Обновление автоматическое. |
 | 0.3.0 | 3.13.0 | Теперь это публичная Open Skies плюс наши моды. Новое: Farmer's Delight с Create: Central Kitchen, рюкзаки и хранилища Sophisticated, свой лут у каждого в сундуках (Lootr), спальники Comforts, AppleSkin, подземелья и храмы YUNG's и деревни Towns and Towers (только в новых чанках мира), приваты Open Parties and Claims, голосовой чат Simple Voice Chat (по выбору; на наших серверах заработает после настройки портов), Chunky, Clumps, Better Advancements, Controlling. Новые клавиши: Alt+B — рюкзак, Caps Lock — говорить, ' — приваты. Обновление автоматическое; серверу — после перезапуска. |
 | 0.2.0 | 3.13.0 | Сборка переехала в репозиторий zentixua/open-skies-friends: новый адрес в предстартовой команде экземпляра и новый `Open-Skies.zip` ([переезд](#переезд)). Набор модов тот же; по старому адресу zentixua/open-skies будет публичная сборка. |
