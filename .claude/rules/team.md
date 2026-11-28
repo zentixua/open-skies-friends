@@ -17,6 +17,8 @@ below. Rewrite a fact here when it changes; no history.
   this sentence brings Codex back. `delegate claude` (main account) only by his word.
   The lead hands the goal (brief or MISSION.md); the executor owns it and finishes alone (plan, code, checks, review,
   merge where the brief allows, report); lead corrections in `lead-notes.md`.
+- **Common standards** (Artem, 28.11): versions, releases, tests and checks work as other teams normally do them; no
+  custom mechanism invented against one incident.
 - One thread or session = one task with a clear end; never two sessions on the same files at once.
 - **Models** by difficulty and cost (table: project files `ops/models/MODELS-report.md`): ordinary code Codex
   Sol medium; hard work Codex Astra or Claude Opus at high; mechanical work Haiku or Terra; effort by the

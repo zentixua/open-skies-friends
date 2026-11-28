@@ -72,11 +72,10 @@ Procedures: the `game-servers` skill. Live state (ports in use, settings, golden
   the same pack, so no restart is needed for the move itself).
 - packwiz installs only mods on a server, not the loader: when `pack.toml` changes `[versions] neoforge`, install that
   NeoForge on each server with the official installer (Artem's line).
-- Artem's playing Prism instance never loses its pack auto-update (PreLaunchCommand), not even for a test: a test
-  jar for him goes only into a separate instance made by incoming `tools/rc_instance.py <jar>` (`Open Skies RC …`),
-  whose launch refuses itself once the pack carries that version, and the Incoming release is done only when incoming
-  `tools/host_sync_check.py` passes. A test jar on a server needs packwiz disabled in its `start.sh` with a backup;
-  restore it right after the release (the mod's join line names both builds when a client and server differ). Play
+- Artem's playing Prism instance is never edited, not even for a test: its pack auto-update stays on. A test build
+  (`X.Y.Z-rc.N`) for him goes into a copy made with Prism's own "Copy" (name it `Open Skies RC`), never into the
+  original. A test build on a server needs packwiz disabled in its `start.sh` with a backup; restore it with the
+  release. Clients and servers on different Incoming versions cannot connect (NeoForge refuses them). Play
   servers run without `MaxTenuringThreshold=1`/`SurvivorRatio=32` (early promotion doubled heap peaks).
 - `airstrike-world reset tiktok` deletes the played world; never say it is kept.
 - Almighty full-map war for TikTok: driver `~/airstrike-server/gm-agent/war/war.py` (`tiktok prep` → `run --minutes N
