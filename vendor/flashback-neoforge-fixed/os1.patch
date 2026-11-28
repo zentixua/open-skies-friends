@@ -1,0 +1,48 @@
+diff --git a/build.gradle b/build.gradle
+index 9f8cc53..f3b4a24 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -76,6 +76,10 @@ tasks.withType(ProcessResources).configureEach {
+     }
+ }
+ 
++tasks.named('jar', Jar) {
++    from('LICENSE') { rename { 'LICENSE_flashback_neoforge_fixed' } }
++}
++
+ tasks.withType(JavaCompile).configureEach {
+     options.encoding = 'UTF-8'
+ }
+diff --git a/gradle.properties b/gradle.properties
+index 5287d10..200f1a8 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -32,7 +32,7 @@ mod_name=Flashback NeoForge Fixed
+ # The license of the mod. Review your options at https://choosealicense.com/. All Rights Reserved is the default.
+ mod_license=MIT
+ # The mod version. See https://semver.org/
+-mod_version=1.0.19
++mod_version=1.0.19+os1
+ # The group ID for the mod. It is only important when publishing as an artifact to a Maven repository.
+ # This should match the base package used for the mod sources.
+ # See https://maven.apache.org/guides/mini/guide-naming-conventions.html
+diff --git a/src/main/java/dev/flashbackfix/compat/ReplayPayloadPolicy.java b/src/main/java/dev/flashbackfix/compat/ReplayPayloadPolicy.java
+index 88e0a75..6ed96c6 100644
+--- a/src/main/java/dev/flashbackfix/compat/ReplayPayloadPolicy.java
++++ b/src/main/java/dev/flashbackfix/compat/ReplayPayloadPolicy.java
+@@ -33,7 +33,14 @@ public final class ReplayPayloadPolicy {
+             id("sablecleanup", "disassemble_tilt_warning"),
+             id("sablecleanup", "schematic_bearing_warning"),
+             id("sablecleanup", "schematic_list_data"),
+-            id("sablecleanup", "schematic_preview_data"));
++            id("sablecleanup", "schematic_preview_data"),
++            // Patched build (+os1): distant-terrain LOD streams. During playback Voxy reads the
++            // recording client's live store (VoxyReplayStorageCompat), so these payloads are never
++            // needed, while recording them grows the chunk buffer and the export by hundreds of MB.
++            id("incoming", "voxy_chunk_z"),
++            id("incoming", "voxy_chunk"),
++            id("incoming", "lod_batch_finished"),
++            id("lss", "voxel_column"));
+ 
+     private ReplayPayloadPolicy() {
+     }
