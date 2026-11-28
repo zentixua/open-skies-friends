@@ -34,7 +34,7 @@ the public ones included.
   Chat in Russian, briefly and to the point.
 - **`pack/` on `main` is the live modpack**: players' auto-updating instances (Prism, packwiz-installer before every
   launch) and the dedicated server install it from `main` on their next launch. Only CI-verified changes and jars
-  from published releases go into `main`.
+  from published releases (or an own build, below) go into `main`.
 - **Updates are automatic** (`.github/workflows/update.yml`, `tools/update_pack.py`): every 3 hours it picks up new
   Incoming and Almighty releases, weekly (Monday 02:41 UTC) all Modrinth mods, as a new patch version with a
   generated README row and English notes. build.yml checks it on branch `pack-update`, then pushes that commit to
@@ -42,6 +42,10 @@ the public ones included.
   "Automatic pack update failed". Do not open pack PRs for a mod release; to get one in at once, run `update`
   manually. Pinned mods stay out: Voxy and Roxy (below) and Create, Sable, Create Aeronautics and Immersive Aircraft, which
   Incoming's and Almighty's GameTests pin; update those by hand in a PR together with the mods' dev pins.
+- **Own builds of third-party mods** (Artem's decision per mod) live in `vendor/<mod>/` with the author's license, the
+  patch and how it was built; the `.pw.toml` links the jar on `raw.githubusercontent.com` by the commit that added it
+  (merge such a PR with a merge commit, so that commit stays in `main`), has `pin = true` and no update source, and
+  README says why (`tools/check_vendor.py`). The only one: Flashback NeoForge Fixed 1.0.19+os1 (`vendor/flashback-neoforge-fixed/README.md`).
 - Keep the modpack clean and reliable: standard mechanisms, no workarounds; other mods' settings stay at their
   defaults, and every file in `config/` needs a reason in README.md. Add a required mod only on Artem's instruction.
 - Bump `version` in `pack.toml` for every change to the modpack's composition, and add a row to README.md's version
@@ -70,6 +74,7 @@ tools/pack_dir.py        ← game directory from pack/ without Prism (mods check
                            docs/team/ — their references. Readers: claude.ai project threads (this repository as a
                            project repository), the laptop-agents hook (laptop clone /mnt/data/projects/open-skies-friends)
 tools/check_loader.py    ← every mod (including nested jars) accepts the NeoForge version in pack.toml; a CI step
+tools/check_vendor.py    ← own builds in vendor/: the linked commit is in history, file and hash match; a CI step
 tools/boot_check.py      ← the modpack boots from scratch: server reaches "Done", client enters a world, client on
                            this server records a Flashback replay; CI job "Запуск с нуля" (client: Xvfb and Mesa);
                            manually: client in Incoming's nested KWin (see the script header)

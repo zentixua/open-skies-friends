@@ -32,6 +32,8 @@ jobs:
         working-directory: pack
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # tools/check_vendor.py follows vendored jars' commits
 
       - uses: actions/setup-go@v6
         with:
@@ -50,6 +52,10 @@ jobs:
         run: |
           packwiz refresh
           git diff --exit-code -- .
+
+      # Own builds of third-party mods (vendor/, AGENTS.md): pinned commit in history, file and hash match.
+      - name: Own builds
+        run: python3 ../tools/check_vendor.py ..
 
       # A mod requiring a newer NeoForge stops startup ("Error loading mods"); the index does not catch this.
       - name: Mods accept the pack's NeoForge
