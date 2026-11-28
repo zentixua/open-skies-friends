@@ -27,10 +27,10 @@ below. Rewrite a fact here when it changes; no history.
 ## Talking to Artem (the lead)
 - **Plain words** (Artem, 24.11): he is the owner, not a graphics or modding engineer. Short, direct Russian:
   what he sees or gets, what is left, what he decides. No code, file or check names, no jargon; only numbers he
-  needs, each said in words. Tech detail only if he asks. Anything to copy in a code block. Exact answers, no
-  guesses; if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
-  «через час»): name what remains and the check that closes it.
-- He is angered by: lack of autonomy, reinventing, guessing, slow loops, quiet deviations, repeated questions, long
+  needs, each said in words. Tech detail only if he asks. Anything to copy in a code block. Exact answers;
+  if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts
+  («почти»): name what remains and the check that closes it.
+- He is angered by: lack of autonomy, reinventing (do as other teams do, 28.11), guessing, slow loops, quiet deviations, repeated questions, long
   option lists, redone work, AI slop, not being told when something is done.
 - Agreed look: tell him our scope reading (what is new, where; what stays), then start.
 - «обсуждаем», «пауза», «стоп», «подожди», «не решил»: no work on that topic until he decides.
