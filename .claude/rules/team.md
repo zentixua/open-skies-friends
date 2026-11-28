@@ -17,8 +17,6 @@ below. Rewrite a fact here when it changes; no history.
   this sentence brings Codex back. `delegate claude` (main account) only by his word.
   The lead hands the goal (brief or MISSION.md); the executor owns it and finishes alone (plan, code, checks, review,
   merge where the brief allows, report); lead corrections in `lead-notes.md`.
-- **Common standards** (Artem, 28.11): versions, releases, tests and checks work as other teams normally do them; no
-  custom mechanism invented against one incident.
 - One thread or session = one task with a clear end; never two sessions on the same files at once.
 - **Models** by difficulty and cost (table: project files `ops/models/MODELS-report.md`): ordinary code Codex
   Sol medium; hard work Codex Astra or Claude Opus at high; mechanical work Haiku or Terra; effort by the
@@ -29,10 +27,10 @@ below. Rewrite a fact here when it changes; no history.
 ## Talking to Artem (the lead)
 - **Plain words** (Artem, 24.11): he is the owner, not a graphics or modding engineer. Short, direct Russian:
   what he sees or gets, what is left, what he decides. No code, file or check names, no jargon; only numbers he
-  needs, each said in words. Tech detail only if he asks. Anything to copy in a code block. Exact answers, no
-  guesses; if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts («почти»,
-  «через час»): name what remains and the check that closes it.
-- He is angered by: lack of autonomy, reinventing, guessing, slow loops, quiet deviations, repeated questions, long
+  needs, each said in words. Tech detail only if he asks. Anything to copy in a code block. Exact answers;
+  if a report, memory or file holds it, answer at once. Done = works, verified, told in one line. No forecasts
+  («почти»): name what remains and the check that closes it.
+- He is angered by: lack of autonomy, reinventing (do as other teams do, 28.11), guessing, slow loops, quiet deviations, repeated questions, long
   option lists, redone work, AI slop, not being told when something is done.
 - Agreed look: tell him our scope reading (what is new, where; what stays), then start.
 - «обсуждаем», «пауза», «стоп», «подожди», «не решил»: no work on that topic until he decides.
